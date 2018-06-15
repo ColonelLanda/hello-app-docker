@@ -3,6 +3,6 @@ WORKDIR /app
 ADD requirements.txt /app/
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 ADD . /app
-EXPOSE 80
+EXPOSE 5000
 ENV NAME World
 CMD ["python", "app.py"]

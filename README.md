@@ -32,7 +32,7 @@ $ docker build -t hello-app:$TAG .
 $ docker images
 
 # Run the app locally
-$ docker run -p 8080:80 hello-app:$TAG
+$ docker run -p 8080:5000 hello-app:$TAG
 # Browse to http://localhost:8080/ or use curl
 $ curl -i http://localhost:8080/
 $ curl -i http://localhost:8080/healthz
@@ -44,5 +44,5 @@ $ docker tag hello-app:$TAG gcr.io/$PROJECT_ID/hello-app:$TAG
 $ gcloud docker -- push gcr.io/$PROJECT_ID/hello-app:$TAG
 
 # Check that you can run an image shared by someone else too
-$ docker run -p 8080:80 hello-app:<someone-else>
+$ docker run -p 8080:5000 hello-app:<someone-else>
 ```
