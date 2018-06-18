@@ -2,7 +2,11 @@ version: '3'
 services:
   web:
     build: hello-app
+    volumes:
+    - ./hello-app:/app
     ports:
-     - "9000:5000"
+    - "9000:5000"
+    environment:
+      DEBUG: "1"
   redis:
     image: "redis:alpine"
