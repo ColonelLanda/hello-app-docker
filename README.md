@@ -46,3 +46,18 @@ $ gcloud docker -- push gcr.io/$PROJECT_ID/hello-app:$TAG
 # Check that you can run an image shared by someone else too
 $ docker run -p 8080:5000 hello-app:<someone-else>
 ```
+
+Also:
+
+Run in "debug" mode with code mounted from host:
+
+```sh
+$ docker run -p 8080:5000 -v $PWD:/app -e DEBUG=1 hello-app:$TAG
+```
+
+Use docker-compose to run the app (in debug mode with code mounted from host) & redis:
+
+```sh
+cd ..
+docker-compose up
+```
