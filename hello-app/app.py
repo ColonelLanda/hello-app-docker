@@ -32,4 +32,5 @@ def hello():
                        visits=visits)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.getenv('PORT', 5000)))
+    app.run(host='0.0.0.0', port=int(os.getenv('PORT', 5000)),
+            debug=os.getenv('DEBUG', '0') == '1')
