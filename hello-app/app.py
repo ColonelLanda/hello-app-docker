@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 from redis import Redis, RedisError
 import os
 import socket
@@ -30,6 +30,9 @@ def hello():
     return html.format(name=os.getenv('NAME', 'world'),
                        hostname=socket.gethostname(),
                        visits=visits)
+@app.route("/env")
+def env():
+    return jsonify(dict(os.environ))
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.getenv('PORT', 5000)),
