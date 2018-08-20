@@ -1,12 +1,26 @@
 version: '3'
 services:
-  web:
+  web1:
     build: hello-app
     volumes:
     - ./hello-app:/app
-    ports:
-    - "9000:5000"
     environment:
       DEBUG: "1"
+
+  web2:
+    build: hello-app
+    volumes:
+    - ./hello-app:/app
+    environment:
+      DEBUG: "2"
+
+  nginx:
+    build: nginx
+    depends_on: 
+      - web1
+      - web2
+    ports: 
+      - 9000:80
+    
   redis:
     image: "redis:alpine"
